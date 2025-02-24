@@ -39,9 +39,17 @@
         inherit src;
 
         strictDeps = true;
-        buildInputs = lib.optionals pkgs.stdenv.isDarwin (with pkgs; [
-          libiconv
-        ]);
+        buildInputs = with pkgs;
+          [
+            openssl
+          ]
+          ++ lib.optionals pkgs.stdenv.isDarwin (with pkgs; [
+            libiconv
+          ]);
+
+        nativeBuildInputs = with pkgs; [
+          pkg-config
+        ];
 
         # Additional environment variables can be set directly.
         # RUST_BACKTRACE = "1";

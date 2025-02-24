@@ -8,3 +8,5 @@ readme = "README.md"
 license-file = "LICNESE"
 
 [dependencies]
+reqwest = { version = "0.12.12", features = ["blocking"] }
+scraper = "0.23.1"
